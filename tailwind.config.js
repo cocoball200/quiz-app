@@ -6,6 +6,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens:{
+      //https://tailwindcss.com/docs/screens
+      'md': {'min': '421px', 'max': '1023px'},
+      'lg': {'min': '1024px'},
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
