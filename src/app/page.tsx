@@ -2,26 +2,35 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className="bg-slate-500 lg:bg-red-600 lg:w-full md:bg-sky-300 md:flex md:justify-center">
-      <div className='hidden lg:fixed lg:z-0 lg:w-screen lg:h-full lg:bg-slate-200 md:fixed md:-z-0 md:w-screen md:h-full md:bg-[##f4eded]'>
-      </div>
-      <div className='lg:fixed lg:z-0 lg:w-full lg:max-w-[512px] lg:h-full home-right lg:block hidden bg-red-700'>
-      </div>
-      <div className='home-center relative bg-purple-500' id="app">
-        <div className='safe-area-top bg-white fixed w-full top-0 h-0  z-50'>
-        </div>
-        <div>
-          <div className='home-page-container'>
-            <div className='header theme header-in-main'>
-              {/* <div className=''>something logo</div>
-              <div className=''>something title</div> */}
+    <main className="">
+      <div className='hero'>
+        <div className='hero-text'>
+          <section className="hero-title">
+            <div className="hero-container">
+              <div className="item-container process-step-1">
+                <div className="item-title-container">
+                  <h1 className="item-title">Let&apos;s</h1>
+                  <div className="item-title-overlay">Let&apos;s</div>
+                </div>
+              </div>
+              <div className="item-container process-step-2">
+                <div className="item-title-container">
+                  <h1 className="item-title">Play</h1>
+                  <div className="item-title-overlay">Play</div>
+                </div>
+              </div>
+              <div className="item-container process-step-3">
+                <div className="item-title-container">
+                  <h1 className="item-title">Quiz</h1>
+                  <div className="item-title-overlay">Quiz</div>
+                </div>
+              </div>
             </div>
-            <div className='view safe-area'>
-              {/* <div>score</div>
-              <div>quiz</div> */}
-            </div>
-          </div>
+          </section>
         </div>
+        <button className='hero-button w-[80%] m-auto flex items-center justify-center px-7.5 py-2.5 text-lg font-semibold q-shadow mb-1 h-10 base bg-purple-700 text-light-3 hover:bg-purple-500 active:bg-purple-900 rounded-lg primary transition-colors duration-200 ease-in-out relative min-w-max text-white'>
+          <span className='hero-button-title font-bold'>START</span>
+        </button>
       </div>
     </main>
   )
