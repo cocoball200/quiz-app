@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  rewrites: async () => [
+    {
+      destination: "https://opentdb.com/:path*", // Proxy to Backend
+      source: "/api/:path*",
+    },
+  ],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
