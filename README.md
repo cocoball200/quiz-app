@@ -1,34 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# User Senario
 
-## Getting Started
+1. When the user land the quiz or select quiz page, the program checks if the user have a previous not completed game. If so, the program will ask the user if he wants to continue the game or start a new one.
+2. If the user selects to continue the game, the program will load the previous game and continue from the last question.
+3. If the user selects to start a new game, the program will start a new game and delete the previous game.
+4. The program will load the questions from the database and display the first question.
+5. The user will select an answer and click the submit button.
+6. The program will check if the answer is correct and display the result.The game should also keep track of the score.
+7. The program will display the next question.
+8. The program will repeat steps 5-7 until the user answer all the questions.
+9. The program will display the final result display the player's score and give them an option to play again.
+10. The program will save the result in the database.
+11. The program will display the top 10 results.
 
-First, run the development server:
+### 2.2.2. Features Left to Implement
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- search the database for quiz API
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Instructions to run the application

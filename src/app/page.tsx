@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -28,9 +29,11 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <button className='hero-button w-[80%] m-auto flex items-center justify-center px-7.5 py-2.5 text-lg font-semibold q-shadow mb-1 h-10 base bg-purple-700 text-light-3 hover:bg-purple-500 active:bg-purple-900 rounded-lg primary transition-colors duration-200 ease-in-out relative min-w-max text-white'>
-          <span className='hero-button-title font-bold'>START</span>
-        </button>
+        <Link href='/category'>
+          <button className='hero-button w-[80%] m-auto flex items-center justify-center px-7.5 py-2.5 text-lg font-semibold q-shadow mb-1 h-10 base bg-purple-700 text-light-3 hover:bg-purple-500 active:bg-purple-900 rounded-lg primary transition-colors duration-200 ease-in-out relative min-w-max text-white'>
+            <span className='hero-button-title font-bold'>START</span>
+          </button>
+        </Link>
       </div>
     </main>
   )
