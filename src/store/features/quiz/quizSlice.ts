@@ -49,7 +49,7 @@ const addIdToQuizzes = (quizzesData: any[]): Quiz[] => {
 };
 
 export const fetchQuizzes = createAsyncThunk('quiz/fetchQuizzes', async ({ difficulty, category }: { difficulty: string, category: number | null }) => {
-  const response = await fetch(`https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}?amount=5&category=${category}&difficulty=${difficulty}`);
   const data = await response.json();
   const quizzesData = data.results;
   const quizzesWithId = addIdToQuizzes(quizzesData);
