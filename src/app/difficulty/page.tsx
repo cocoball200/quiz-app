@@ -5,7 +5,6 @@ const Quiz: React.FC = () => {
 
   return (
     <div>
-      <h2>Quiz</h2>
       <Difficulty />
     </div>
   );

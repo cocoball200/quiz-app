@@ -75,25 +75,43 @@ const Quiz: React.FC = () => {
 
 
 
-
+  const CATEGORY_DATA = {
+    21: 'Sports',
+    23: 'History',
+    27: 'Animals',
+  }
 
   return (
     <div>
-      <h1>score: {score}/5</h1>
-      <h2>Quiz</h2>
-      <p>Question: {quizzes[currentQuestionIndex]?.question} </p>
-      <div className='flex justify-center flex-col items-center'>
-        {isAnswerMatching ? <div>
-          {isShowResult && <div> {isAnswerCorrect ? <div>Correct</div> : <>Incorrect: Answer is {quizzes[currentQuestionIndex].correct_answer}</>}  </div>}
-        </div> : <p>{quizzes[currentQuestionIndex]?.fullAnswer?.map((item) => {
-          return <button key={item} onClick={() => handleAnswerSelect(item)} disabled={isAnswerMatching}>
-            <div>
-              {item}
-            </div>
-          </button>
-        })}</p>}
+      <div className=''>
+        <div className='mt-3'>
+          <div>
+            <h1 className='p-2 bg-black text-white font-semibold w-30'>Category</h1>
+            <div>{category}</div>
+          </div>
+          <h1 className='p-2 bg-black text-white font-semibold w-30'>Level</h1>
+          <h1>score: {score}/5</h1>
+        </div>
+        <div className='flex h-5 border-b-4 mb-4 border-black '>
+        </div>
+        <div className='mt-3'>
+          <h1 className='p-2 bg-black text-white inline-block font-semibold'>Quiz</h1>
+        </div>
+        <p>Question: {quizzes[currentQuestionIndex]?.question} </p>
+        <div className='flex justify-center flex-col items-center'>
+          {isAnswerMatching ? <div>
+            {isShowResult && <div> {isAnswerCorrect ? <div>Correct</div> : <>Incorrect: Answer is {quizzes[currentQuestionIndex].correct_answer}</>}  </div>}
+          </div> : <p>{quizzes[currentQuestionIndex]?.fullAnswer?.map((item) => {
+            return <button key={item} onClick={() => handleAnswerSelect(item)} disabled={isAnswerMatching}>
+              <div>
+                {item}
+              </div>
+            </button>
+          })}</p>}
 
+        </div>
       </div>
+
 
     </div>
   );

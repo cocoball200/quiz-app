@@ -43,7 +43,7 @@ export default function DifficultyComponent() {
           {DIFFICULTY_DATA.map((difficulty) => (
             <button className="flex flex-col items-start justify-between cursor-pointer" key={difficulty.id} onClick={() => handleDifficultySelect(difficulty.id)} >
               <div className="relative w-full">
-                <div className={`aspect-[16/9] w-full rounded-2xl bg-[#6a13f4] object-cover sm:aspect-[2/1]  flex justify-center items-center`}>
+                <div className={`aspect-[16/9] w-full rounded-2xl bg-[#A15BD8] object-cover sm:aspect-[2/1]  flex justify-center items-center`}>
                   <h3 className=' text-white font-bold text-3xl'>{difficulty.title}</h3>
                 </div>
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
