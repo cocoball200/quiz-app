@@ -219,19 +219,6 @@ body {
   border-radius: 1rem !important;
 }
 
-.loading-spinner-container {
-  height: 100vh;
-}
-
-.loading-spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid #ccc;
-  border-radius: 50%;
-  border-top-color: #777;
-  animation: spin 1s ease-in-out infinite;
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);

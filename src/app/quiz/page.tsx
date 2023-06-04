@@ -30,12 +30,12 @@ const Quiz: React.FC = () => {
 
   const handleRestart = () => {
     dispatch(resetQuiz());
-    router.push('/');
+    router.push('/category');
 
   }
 
   if (loading) {
-    return <LoadingSpinner />;
+    return <></>;
   }
 
   if (error) {
