@@ -1,25 +1,24 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchQuizzes, selectAnswer, addCurrentQuestionIndex, resetQuiz } from '@/store/features/quiz/quizSlice';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { fetchQuizzes, resetQuiz } from '@/store/features/quiz/quizSlice';
 import { AppDispatch, RootState } from '@/store/store';
-import QuizBox from "@/components/Category";
+import QuestionCard from '@/components/QuestionCard';
+import MultiChoice from '@/components/MultiChoice';
+import LoadingSpinner from '@/components/LoadingSpinner';
+
 
 const Quiz: React.FC = () => {
-  const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
   const { quizzes, score, loading, error, category, difficulty, currentQuestionIndex } = useSelector((state: RootState) => state.quizStore);
-  const [isShowResult, setIsShowResult] = useState(false);
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
-  const [isAnswerMatching, setIsAnswerMatching] = useState(false);
-
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await dispatch(fetchQuizzes({ category, difficulty }));
+        await dispatch(fetchQuizzes({ category: category.key, difficulty: difficulty.key }));
       } catch (error) {
         console.log(error);
       }
@@ -28,33 +27,15 @@ const Quiz: React.FC = () => {
     fetchData();
   }, [dispatch]);
 
-  console.log(quizzes);
 
-  const handleAnswerSelect = (selectedAnswer: string) => {
-    setIsAnswerMatching(true);
-    setIsShowResult(true);
-    dispatch(selectAnswer({ selectedAnswer }));
-    if (quizzes[currentQuestionIndex]?.correct_answer === selectedAnswer) {
-      setIsAnswerCorrect(true);
-    } else {
-      setIsAnswerCorrect(false);
-    }
-
-    setTimeout(() => {
-      dispatch(addCurrentQuestionIndex())
-      setIsAnswerMatching(false);
-      setIsShowResult(false);
-    }, 3000);
-  };
-
-
-  const handleResetQuiz = () => {
+  const handleRestart = () => {
     dispatch(resetQuiz());
-    // router.push('/category');
+    router.push('/');
+
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   }
 
   if (error) {
@@ -64,55 +45,31 @@ const Quiz: React.FC = () => {
 
   if (currentQuestionIndex >= quizzes.length) {
     return (
-      <div>
-        <h2>Quiz Finished!</h2>
-        <p>Your score: {score}</p>
-        <button onClick={handleResetQuiz}>Restart Quiz</button>
+      <div className="">
+        <div className='h-[240px] rounded-b-3xl bg-[#b168f1] static'></div>
+        <div className="flex justify-center">
+          <Image src='/logo.png' width={40} height={40} alt="logo" className='z-50 relative top-[-216px]' />
+        </div>
+        <div className='h-[220px] z-0 relative top-[-82px] bg-white rounded-3xl mx-auto w-[96%] shadow-lg flex justify-center items-center'>
+          <div className='flex justify-center flex-col items-center'>
+            <h1 className='text-xl font-semibold'>Your Score </h1>
+            <h1 className='text-xl font-semibold'>{score} / 5</h1></div>
+        </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h1 className='text-center text-xl font-extrabold'>COMPLETED</h1>
+        </div>
+        <button className='mt-5 hero-button w-[80%] m-auto flex items-center justify-center px-7.5 py-2.5 text-lg font-semibold q-shadow mb-1 h-10 base bg-purple-700 text-light-3 hover:bg-purple-500 active:bg-purple-900 rounded-lg primary transition-colors duration-200 ease-in-out relative min-w-max text-white' onClick={handleRestart}>
+          <span className='hero-button-title font-bold'>RESTART</span>
+        </button>
       </div>
+
     );
-  }
-
-
-
-
-  const CATEGORY_DATA = {
-    21: 'Sports',
-    23: 'History',
-    27: 'Animals',
   }
 
   return (
     <div>
-      <div className=''>
-        <div className='mt-3'>
-          <div>
-            <h1 className='p-2 bg-black text-white font-semibold w-30'>Category</h1>
-            <div>{category}</div>
-          </div>
-          <h1 className='p-2 bg-black text-white font-semibold w-30'>Level</h1>
-          <h1>score: {score}/5</h1>
-        </div>
-        <div className='flex h-5 border-b-4 mb-4 border-black '>
-        </div>
-        <div className='mt-3'>
-          <h1 className='p-2 bg-black text-white inline-block font-semibold'>Quiz</h1>
-        </div>
-        <p>Question: {quizzes[currentQuestionIndex]?.question} </p>
-        <div className='flex justify-center flex-col items-center'>
-          {isAnswerMatching ? <div>
-            {isShowResult && <div> {isAnswerCorrect ? <div>Correct</div> : <>Incorrect: Answer is {quizzes[currentQuestionIndex].correct_answer}</>}  </div>}
-          </div> : <p>{quizzes[currentQuestionIndex]?.fullAnswer?.map((item) => {
-            return <button key={item} onClick={() => handleAnswerSelect(item)} disabled={isAnswerMatching}>
-              <div>
-                {item}
-              </div>
-            </button>
-          })}</p>}
-
-        </div>
-      </div>
-
-
+      <QuestionCard score={score} category={category} question={quizzes[currentQuestionIndex]?.question} difficulty={difficulty} />
+      <MultiChoice multipleChoice={quizzes[currentQuestionIndex].multipleChoice} correct_answer={quizzes[currentQuestionIndex].correct_answer} />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import React from 'react';
 import Difficulty from '@/components/Difficulty';
 
 const Quiz: React.FC = () => {

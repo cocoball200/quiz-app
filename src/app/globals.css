@@ -23,15 +23,11 @@ body {
   .home-center {
     position: relative;
     margin: 0 0 0 calc(50vw - 1px);
-    border: 4px solid black;
-    border-radius: 10px;
   }
 }
 
 @media only screen and (min-width: 421px) and (max-width: 1023px) {
   .home-center {
-    border: 4px solid black;
-    border-radius: 10px;
     position: relative;
   }
 }
@@ -206,4 +202,41 @@ body {
 
 .border {
   border-bottom: 4px solid black;
+}
+
+.correct.same {
+  border: 2px solid #b168f1 !important;
+  border-radius: 1rem !important;
+}
+
+.incorrect.same {
+  border: 2px solid red !important;
+  border-radius: 1rem !important;
+}
+
+.incorrect.correct-answer {
+  border: 2px solid #b168f1 !important;
+  border-radius: 1rem !important;
+}
+
+.loading-spinner-container {
+  height: 100vh;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #ccc;
+  border-radius: 50%;
+  border-top-color: #777;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
