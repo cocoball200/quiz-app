@@ -7,7 +7,6 @@ import { fetchQuizzes, resetQuiz } from '@/store/features/quiz/quizSlice';
 import { AppDispatch, RootState } from '@/store/store';
 import QuestionCard from '@/components/QuestionCard';
 import MultiChoice from '@/components/MultiChoice';
-import LoadingSpinner from '@/components/LoadingSpinner';
 
 
 const Quiz: React.FC = () => {
