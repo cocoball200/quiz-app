@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
 body {
   height: unset;
   overflow-x: auto;
@@ -18,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.5px;
+  background-color: #fff9e4;
 }
 
 .home-right {
@@ -28,18 +23,12 @@ body {
   .home-center {
     position: relative;
     margin: 0 0 0 calc(50vw - 1px);
-    border-width: 0 1px;
-    border-style: solid;
-    border-color: #e1e1e1;
   }
 }
 
 @media only screen and (min-width: 421px) and (max-width: 1023px) {
   .home-center {
     position: relative;
-    border-width: 0 1px;
-    border-style: solid;
-    border-color: #e1e1e1;
   }
 }
 
@@ -98,7 +87,7 @@ body {
 .hero-title {
   --gradient-color-1: #e4e1e1;
   --gradient-color-2: #6a13f4;
-  --gradient-color-3: #7038ee;
+  --gradient-color-3: #a15bd8;
   --gradient-color-4: #cccccc;
 }
 .hero-title .hero-container .item-container .item-title-container {
@@ -209,4 +198,45 @@ body {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.border {
+  border-bottom: 4px solid black;
+}
+
+.correct.same {
+  border: 2px solid #b168f1 !important;
+  border-radius: 1rem !important;
+}
+
+.incorrect.same {
+  border: 2px solid red !important;
+  border-radius: 1rem !important;
+}
+
+.incorrect.correct-answer {
+  border: 2px solid #b168f1 !important;
+  border-radius: 1rem !important;
+}
+
+.loading-spinner-container {
+  height: 100vh;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #ccc;
+  border-radius: 50%;
+  border-top-color: #777;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

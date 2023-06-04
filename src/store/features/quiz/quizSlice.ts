@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { Key } from 'react';
 
 interface Quiz {
   category: string;
   question: string;
   correct_answer: string;
   incorrect_answers: string[];
-  fullAnswer: string[];
+  multipleChoice: string[];
   difficulty: string;
   type: string;
   id: number;
@@ -17,8 +18,8 @@ interface QuizState {
   score: number;
   loading: boolean;
   error: string | null;
-  difficulty: string;
-  category: number | null;
+  difficulty: { key: string, value: string };
+  category: { key: number, value: string };
 }
 
 const initialState: QuizState = {
@@ -27,8 +28,8 @@ const initialState: QuizState = {
   score: 0,
   loading: false,
   error: null,
-  category: null,
-  difficulty: ""
+  category: { key: 0, value: "" },
+  difficulty: { key: "", value: "" },
 };
 
 const shuffleArray = (array: Array<string>) => {
@@ -43,7 +44,7 @@ const shuffleArray = (array: Array<string>) => {
 const addIdToQuizzes = (quizzesData: any[]): Quiz[] => {
   return quizzesData.map((quiz, index) => ({
     id: index,
-    fullAnswer: shuffleArray([...quiz.incorrect_answers, quiz.correct_answer]),
+    multipleChoice: shuffleArray([...quiz.incorrect_answers, quiz.correct_answer]),
     ...quiz,
   }));
 };
@@ -70,8 +71,7 @@ const quizSlice = createSlice({
       }
     },
     resetQuiz: (state) => {
-      state.currentQuestionIndex = 0;
-      state.score = 0;
+      Object.assign(state, initialState);
     },
     addCurrentQuestionIndex: (state) => {
       state.currentQuestionIndex += 1;

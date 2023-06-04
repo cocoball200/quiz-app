@@ -1,54 +1,52 @@
 'use client';
 import React from 'react';
-import Router, { useRouter } from 'next/navigation';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
 import { addQuizDifficulty } from '@/store/features/quiz/quizSlice';
-import { RootState } from '@/store/store';
+import Image from 'next/image';
 
 const DIFFICULTY_DATA = [
   {
-    id: 'easy',
-    title: 'Esay',
+    key: 'easy',
+    value: 'Esay',
   },
   {
-    id: 'medium',
-    title: 'Medium',
+    key: 'medium',
+    value: 'Medium',
   },
   {
-    id: 'hard',
-    title: 'Hard',
+    key: 'hard',
+    value: 'Hard',
   },
 ]
 
 export default function DifficultyComponent() {
   const dispatch = useDispatch();
   const router = useRouter();
-  const { category } = useSelector((state: RootState) => state.quizStore);
 
-  // if (!category) {
-  //   router.push('/category');
-  // }
-
-  async function handleDifficultySelect(difficulty: string) {
-    dispatch(addQuizDifficulty(difficulty));
+  async function handleDifficultySelect(key: string, value: string) {
+    dispatch(addQuizDifficulty({ key, value }));
     router.push('/quiz');
   }
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="">
+      <div className='h-[240px] rounded-b-3xl bg-[#b168f1] static'></div>
+      <div className="flex justify-center">
+        <Image src='/logo.png' width={40} height={40} alt="logo" className='z-50 relative top-[-216px]' />
+      </div>
+      <div className='h-[220px] z-0 relative top-[-82px] bg-white rounded-3xl mx-auto w-[96%] shadow-lg flex justify-center items-center'>
+        <h1 className='text-xl font-semibold'>Select Difficulty </h1>
+      </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Select the Difficulty</h2>
-        </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none">
-          {DIFFICULTY_DATA.map((difficulty) => (
-            <button className="flex flex-col items-start justify-between cursor-pointer" key={difficulty.id} onClick={() => handleDifficultySelect(difficulty.id)} >
-              <div className="relative w-full">
-                <div className={`aspect-[16/9] w-full rounded-2xl bg-[#6a13f4] object-cover sm:aspect-[2/1]  flex justify-center items-center`}>
-                  <h3 className=' text-white font-bold text-3xl'>{difficulty.title}</h3>
-                </div>
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-5 lg:mx-0 lg:max-w-none">
+          {DIFFICULTY_DATA.map((difficulty, index) => (
+            <button className="flex flex-col items-start justify-between cursor-pointer" key={difficulty.key} onClick={() => handleDifficultySelect(difficulty.key, difficulty.value)}>
+              <div className="relative w-full hover:border-[#b168f1] hover:border-2 hover:rounded-2xl border-0">
+                <h3 className=' text-black text-lg text-left mx-6 py-2'><span className='mx-2'>{index + 1}.</span>{difficulty.value}</h3>
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
               </div>
             </button>
+
           ))}
         </div>
       </div>
