@@ -46,7 +46,7 @@ const Quiz: React.FC = () => {
   if (currentQuestionIndex >= quizzes.length) {
     return (
       <div className="">
-        <div className='h-[240px] rounded-b-3xl bg-[#b168f1] static'></div>
+        <div className='h-[240px] rounded-b-3xl bg-purple-500 static'></div>
         <div className="flex justify-center">
           <Image src='/logo.png' width={40} height={40} alt="logo" className='z-50 relative top-[-216px]' />
         </div>

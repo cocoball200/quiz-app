@@ -77,7 +77,7 @@ export default function MultiChoiceComponent({ multipleChoice, correct_answer }:
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-5 lg:mx-0 lg:max-w-none" >
           {multipleChoice?.map((choice, index) => (
-            <button className={`flex flex-col items-start justify-between cursor-pointer hover:border-[#b168f1] hover:border-2 hover:rounded-2xl disabled:border-0 disabled:cursor-not-allowed ease-in ${isShowResult && isAnswerCorrect ? 'correct' : 'incorrect'} ${choice === selectedAnswer ? 'same' : ''} ${isShowResult && choice === correct_answer ? 'correct-answer' : ''}`} key={index} onClick={() => handleSelectAnswer(choice)} disabled={isShowResult}>
+            <button className={`flex flex-col items-start justify-between cursor-pointer hover:border-purple-500 hover:border-2 hover:rounded-2xl disabled:border-0 disabled:cursor-not-allowed ease-in ${isShowResult && isAnswerCorrect ? 'correct' : 'incorrect'} ${choice === selectedAnswer ? 'same' : ''} ${isShowResult && choice === correct_answer ? 'correct-answer' : ''}`} key={index} onClick={() => handleSelectAnswer(choice)} disabled={isShowResult}>
               <div className="relative w-full border-0">
                 <h3 className=' text-black text-lg text-left mx-6 py-2'><span className='mx-2'>{index + 1}.</span>{choice}</h3>
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
