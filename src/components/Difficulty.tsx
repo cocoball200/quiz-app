@@ -30,7 +30,7 @@ export default function DifficultyComponent() {
   }
   return (
     <div className="">
-      <div className='h-[240px] rounded-b-3xl bg-[#b168f1] static'></div>
+      <div className='h-[240px] rounded-b-3xl bg-purple-500 static'></div>
       <div className="flex justify-center">
         <Image src='/logo.png' width={40} height={40} alt="logo" className='z-50 relative top-[-216px]' />
       </div>
@@ -41,7 +41,7 @@ export default function DifficultyComponent() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-5 lg:mx-0 lg:max-w-none">
           {DIFFICULTY_DATA.map((difficulty, index) => (
             <button className="flex flex-col items-start justify-between cursor-pointer" key={difficulty.key} onClick={() => handleDifficultySelect(difficulty.key, difficulty.value)}>
-              <div className="relative w-full hover:border-[#b168f1] hover:border-2 hover:rounded-2xl border-0">
+              <div className="relative w-full hover:border-purple-500 hover:border-2 hover:rounded-2xl border-0">
                 <h3 className=' text-black text-lg text-left mx-6 py-2'><span className='mx-2'>{index + 1}.</span>{difficulty.value}</h3>
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
               </div>

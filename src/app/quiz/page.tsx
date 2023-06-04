@@ -7,7 +7,6 @@ import { fetchQuizzes, resetQuiz } from '@/store/features/quiz/quizSlice';
 import { AppDispatch, RootState } from '@/store/store';
 import QuestionCard from '@/components/QuestionCard';
 import MultiChoice from '@/components/MultiChoice';
-import LoadingSpinner from '@/components/LoadingSpinner';
 
 
 const Quiz: React.FC = () => {
@@ -30,12 +29,12 @@ const Quiz: React.FC = () => {
 
   const handleRestart = () => {
     dispatch(resetQuiz());
-    router.push('/');
+    router.push('/category');
 
   }
 
   if (loading) {
-    return <LoadingSpinner />;
+    return <></>;
   }
 
   if (error) {
@@ -46,7 +45,7 @@ const Quiz: React.FC = () => {
   if (currentQuestionIndex >= quizzes.length) {
     return (
       <div className="">
-        <div className='h-[240px] rounded-b-3xl bg-[#b168f1] static'></div>
+        <div className='h-[240px] rounded-b-3xl bg-purple-500 static'></div>
         <div className="flex justify-center">
           <Image src='/logo.png' width={40} height={40} alt="logo" className='z-50 relative top-[-216px]' />
         </div>
