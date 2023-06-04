@@ -4,7 +4,7 @@ API from https://opentdb.com
 
 # Skills
 
-Next.js, React.js, Typescript, Javascript, Tailwindcss
+Next.js, React.js, Typescript, Javascript, Tailwindcss, Redux toolkit
 
 # Repo
 
