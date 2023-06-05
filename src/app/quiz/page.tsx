@@ -27,6 +27,12 @@ const Quiz: React.FC = () => {
     fetchData();
   }, [dispatch]);
 
+  useEffect(() => {
+    if (!category.key || !difficulty.key) {
+      router.push('/category');
+    }
+  }, [category.key, difficulty.key, router]);
+
 
   const handleRestart = () => {
     dispatch(resetQuiz());
@@ -34,9 +40,6 @@ const Quiz: React.FC = () => {
 
   }
 
-  if (!category.key || !difficulty.key) {
-    router.push('/category');
-  }
 
   if (loading) {
     return <ReactLoading type="bubbles" color="#a855f7" height="100%" width="100%" />;
