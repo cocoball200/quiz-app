@@ -1,3 +1,4 @@
+# OGMI Assignment
 # API
 
 API from https://opentdb.com
@@ -15,5 +16,5 @@ Next.js, React.js, Typescript, Javascript, Tailwindcss, Redux toolkit
    3. Run `npm run dev`
    4. Open http://localhost:3000
 
-# You can see the deplyoed web page 
-on https://quiz-app-mia-blog.vercel.app
+# You can see the deplyoed web page on 
+https://quiz-app-mia-blog.vercel.app
