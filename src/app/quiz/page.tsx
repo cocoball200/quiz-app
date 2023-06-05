@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import ReactLoading from 'react-loading';
 import { fetchQuizzes, resetQuiz } from '@/store/features/quiz/quizSlice';
 import { AppDispatch, RootState } from '@/store/store';
 import QuestionCard from '@/components/QuestionCard';
@@ -34,7 +35,7 @@ const Quiz: React.FC = () => {
   }
 
   if (loading) {
-    return <></>;
+    return <ReactLoading type="bubbles" color="#a855f7" height="100%" width="100%" />;
   }
 
   if (error) {

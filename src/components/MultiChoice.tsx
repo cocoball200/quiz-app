@@ -60,6 +60,8 @@ export default function MultiChoiceComponent({ multipleChoice, correct_answer }:
     setTimeout(() => {
       dispatch(addCurrentQuestionIndex())
       setIsShowResult(false);
+      setSelectedAnswer('');
+      setIsAnswerCorrect(false);
     }, 3000);
   };
 
