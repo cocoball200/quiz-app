@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Quiz App',
-  description: 'OGMI Assigment',
+  description: 'OGMI Assignment',
 }
 
 export default function RootLayout({

@@ -3,9 +3,7 @@ import Difficulty from '@/components/Difficulty';
 const Quiz: React.FC = () => {
 
   return (
-    <div>
-      <Difficulty />
-    </div>
+    <Difficulty />
   );
 };
 

@@ -34,6 +34,10 @@ const Quiz: React.FC = () => {
 
   }
 
+  if (!category.key || !difficulty.key) {
+    router.push('/category');
+  }
+
   if (loading) {
     return <ReactLoading type="bubbles" color="#a855f7" height="100%" width="100%" />;
   }

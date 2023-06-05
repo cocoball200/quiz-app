@@ -2,9 +2,7 @@ import Category from '@/components/Category';
 
 const Quiz: React.FC = () => {
   return (
-    <div>
-      <Category />
-    </div>
+    <Category />
   );
 };
 

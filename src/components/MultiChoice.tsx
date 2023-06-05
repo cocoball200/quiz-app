@@ -1,45 +1,13 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { AppDispatch, RootState } from '@/store/store';
-import { fetchQuizzes, selectAnswer, addCurrentQuestionIndex, resetQuiz } from '@/store/features/quiz/quizSlice';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-
-
-const CATEGORY_DATA = [
-  {
-    id: 21,
-    title: 'Sports',
-    color: '#6a13f4'
-  },
-  {
-    id: 23,
-    title: 'History',
-    color: '#6a13f4'
-  },
-  {
-    id: 27,
-    title: 'Animals',
-    color: '#6a13f4'
-  },
-]
+import { AppDispatch } from '@/store/store';
+import { selectAnswer, addCurrentQuestionIndex } from '@/store/features/quiz/quizSlice';
 
 type MultiChoice = {
   correct_answer: string;
   multipleChoice: string[];
 };
-
-interface Quiz {
-  category: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-  multipleChoice: string[];
-  difficulty: string;
-  type: string;
-  id: number;
-}
 
 export default function MultiChoiceComponent({ multipleChoice, correct_answer }: MultiChoice) {
   const dispatch = useDispatch<AppDispatch>();
@@ -64,10 +32,6 @@ export default function MultiChoiceComponent({ multipleChoice, correct_answer }:
       setIsAnswerCorrect(false);
     }, 3000);
   };
-
-  const handleDisplayResult = () => {
-    return 'aa';
-  }
 
 
   return (
