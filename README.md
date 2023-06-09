@@ -18,3 +18,9 @@ Next.js, React.js, Typescript, Javascript, Tailwindcss, Redux toolkit
 
 # You can see the deplyoed web page on 
 https://quiz-app-mia-blog.vercel.app
+
+# What's next for improving 
+1. a feature by using the setimeout => web worker
+2. Add test code
+3. result page layout
+
